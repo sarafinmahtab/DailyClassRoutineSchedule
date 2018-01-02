@@ -17,7 +17,7 @@
 			String dbUserName = null;
 			String dbPassWord = null;
 			String userName = request.getParameter("username");
-			String passWord = request.getParameter("password");
+			String passWord = request.getParameter("key");
 			String sql = "SELECT * FROM `user_login` WHERE `user_name` = ? AND `password` = ?;";
 			
 			Class.forName("com.mysql.jdbc.Driver");

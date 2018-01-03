@@ -9,7 +9,7 @@
 
 <body>
 
-<%@ include file="LoginPage.html" %>
+<%@ include file="login.html" %>
 <!-- 
 <div align="center">
 <h2>Login to Daily Class Routine Schedule</h2>

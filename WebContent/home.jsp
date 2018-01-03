@@ -12,6 +12,14 @@
 
 	<%@ include file="home.html" %>
 	
+	<script language="javascript" type="text/javascript">
+	
+		function signInSuccess() {
+			document.getElementById("page_manage").style.display = "none";
+		}
+	
+	</script>
+	
 	<%
 		if(request.getParameter("username") != null && request.getParameter("key") != null) {
 			try {
@@ -35,8 +43,14 @@
 				}
 				
 				if(userName.equals(dbUserName) && passWord.equals(dbPassWord)) {
-					out.println("You've successfully logged in!!");
+					%>
+						<script type="text/javascript">
+							signInSuccess();
+						</script>
+					<%
+					out.println("Login Successfull");
 				} else {
+					session.setAttribute("login_failed", "Username or Password is incorrect");
 					response.sendRedirect("login.jsp");
 				}
 			} catch(ClassNotFoundException e) {
@@ -46,8 +60,6 @@
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
-		} else {
-			
 		}
 	%>
 

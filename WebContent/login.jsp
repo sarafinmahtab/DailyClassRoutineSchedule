@@ -8,18 +8,29 @@
 </head>
 
 <body>
-
-<%@ include file="login.html" %>
-<!-- 
-<div align="center">
-<h2>Login to Daily Class Routine Schedule</h2>
-<form action="HomePage.jsp" method="post">
-	User name: <input type="text" name="username">
-	Password: <input type="password" name="password">
-	<input type="submit" value="Register">
-</form>
-</div>
-
- -->
+	
+	<%@ include file="login.html" %>
+	
+	<script language="javascript" type="text/javascript">
+	
+		function updateLoginResult(str) {
+			document.getElementById("login_result").style.display = "block";
+			document.getElementById("login_result").innerHTML = str;
+		}
+		
+	</script>	
+	
+	<%
+		if(session.getAttribute("login_failed") != null) {
+			String str = session.getAttribute("login_failed").toString();
+			%>
+				<script language="javascript" type="text/javascript">
+					var string = "<%= str %>";
+					updateLoginResult(string);
+				</script>
+			<%
+		}
+	%>
+	
 </body>
 </html>
